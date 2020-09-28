@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors');
+// const cors = require('cors');
 const knex = require('knex');
 const bcrypt = require('bcrypt-nodejs');
 const register = require('./controllers/register');
@@ -12,7 +12,7 @@ const image = require('./controllers/image');
 const db = knex({
   client: 'pg',
   connection: {
-    connectionString: process.env.DATABASE_URL
+    connectionString: process.env.DATABASE_URL,
   }
 });
 
@@ -21,7 +21,7 @@ const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
 
 app.get('/', (req, res) => { res.json("ITS WORKING") });
 
